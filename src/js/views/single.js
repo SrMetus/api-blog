@@ -1,26 +1,26 @@
-import React, { useState, useEffect, useContext } from "react";
-import PropTypes from "prop-types";
-import { Link, useParams } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const Single = props => {
-	const { store, actions } = useContext(Context);
-	const params = useParams();
-	return (
-		<div className="jumbotron">
-			<h1 className="display-4">This will show the demo element: {store.demo[params.theid].title}</h1>
+export const Single = () => {
+    const { id } = useParams(); // ID de la URL
+    const { store, actions } = useContext(Context);
 
-			<hr className="my-4" />
+	useEffect(() => {
+        actions.getCharactersDetails(`https://rickandmortyapi.com/api/character/${id}`);
+    }, []);
 
-			<Link to="/">
-				<span className="btn btn-primary btn-lg" href="#" role="button">
-					Back home
-				</span>
-			</Link>
-		</div>
-	);
-};
+	console.log(store.details)
 
-Single.propTypes = {
-	match: PropTypes.object
+    return (
+        <div>
+			<img src={store.details?.image} className="card-img-top" alt="" />
+            <h2>Name: {store.details?.name}</h2>
+            <p>Status: {store.details?.status}</p>
+            <p>Species: {store.details?.species}</p>
+            <p>Gender: {store.details?.gender}</p>
+            <p>Origin: {store.details.origin?.name}</p>
+			<p>Location: {store.details.location?.name}</p>
+        </div>
+    );
 };

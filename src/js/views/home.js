@@ -7,10 +7,6 @@ import "../../styles/home.css";
 export const Home = () => {
 	const { store, actions } = useContext(Context);
 
-	useEffect(() => {
-		actions.getCharacters("https://rickandmortyapi.com/api/character")
-	}, []);
-
 	console.log("Home", store.characters)
 	return (
 		<main>
