@@ -1,15 +1,37 @@
-import React from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
+import React, { useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { Context } from "../store/appContext";
+
 import "../../styles/home.css";
 
-export const Home = () => (
-	<div className="text-center mt-5">
-		<h1>Hello Rigo!</h1>
-		<p>
-			<img src={rigoImage} />
-		</p>
-		<a href="#" className="btn btn-success">
-			If you see this green button, bootstrap is working
-		</a>
-	</div>
-);
+export const Home = () => {
+	const { store, actions } = useContext(Context);
+
+	useEffect(() => {
+		actions.getCharacters("https://rickandmortyapi.com/api/character")
+	}, []);
+
+	console.log("Home", store.characters)
+	return (
+		<main>
+			<div className="container">
+				<div className="image-container">
+					<Link to="/characters">
+						<img src="https://cdn.pixabay.com/photo/2021/06/17/22/55/rick-and-morty-6344804_1280.jpg" alt="Characters" className="image" />
+						<div className="text-overlay">
+							<h2>Characters</h2>
+						</div>
+					</Link>
+				</div>
+				<div className="image-container">
+					<Link to="/locations">
+						<img src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2021/06/rick-morty-2381623.jpg" alt="Location" className="image" />
+						<div className="text-overlay">
+							<h2>Locations</h2>
+						</div>
+					</Link>
+				</div>
+			</div>
+		</main>
+	);
+}
