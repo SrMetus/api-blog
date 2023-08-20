@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
 
 export const Card = ({ id, name, status, species, gender, origin, image }) => {
+    const { actions } = useContext(Context)
+
+    const handleAddFavorite = () => {
+        actions.addFavorite({
+            id,
+            name,
+            status,
+            species,
+            gender,
+            origin,
+            image
+        })
+    }
     return (
         <>
             <div className="card" style={{ width: "18rem" }}>
@@ -13,7 +27,7 @@ export const Card = ({ id, name, status, species, gender, origin, image }) => {
                     <p className="card-text">gender: {gender}</p>
                     <p className="card-text">origin: {origin}</p>
                     <Link to={`/single/${id}`} className="btn btn-primary">Details</Link>
-                    <a href="#" className="btn btn-danger">Fav</a>
+                    <button className="btn btn-danger" onClick={handleAddFavorite}>Fav</button>
                 </div>
             </div>
         </>

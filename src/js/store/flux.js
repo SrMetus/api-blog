@@ -3,7 +3,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			characters: [],
 			locations: [],
-			details: {}
+			details: {},
+			favorite: []
 
 		},
 		actions: {
@@ -24,7 +25,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				.then(resp => resp.json()
 				)
 				.then(data => {
-					setStore({ locations: data.results })
+					setStore({ locations: data.results });
 					console.log("Flux", data.results)
 				})
 				.catch(error => {
@@ -41,7 +42,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				.catch(error => {
 					console.log("error de fetch", error)
 				})
+			},
+			addFavorite: fav => {
+				const store = getStore();
+				const updateFavorite = [...store.favorite, fav];
+				setStore({favorite: updateFavorite});
 			}
+
 
 		}
 	}
