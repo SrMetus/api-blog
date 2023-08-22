@@ -1,4 +1,4 @@
-body, html {
+/* body, html {
   height: 100%;
   margin: 0;
 }
@@ -17,16 +17,16 @@ body, html {
 }
 
 .image {
-  width: 300px; /* Establecer un ancho fijo */
+  width: 300px;
   height: auto;
   transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
-  border-radius: 15px; /* Agregar un radio */
-  border: 5px solid white; /* Agregar un borde */
+  border-radius: 15px;
+  border: 5px solid white;
 }
 
 .image:hover {
-  transform: scale(1.05); /* Agrandar la imagen al pasar el mouse */
-  filter: brightness(75%); /* Cambiar el brillo al pasar el mouse */
+  transform: scale(1.05);
+  filter: brightness(75%);
 }
 
 .text-overlay {
@@ -40,16 +40,16 @@ body, html {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
-  border-radius: 15px; /* Agregar un radio */
-  opacity: 0; /* Ocultar el texto inicialmente */
-  transition: opacity 0.3s ease-in-out; /* Agregar transición para la opacidad */
+  border-radius: 15px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .image-container:hover .text-overlay {
-  opacity: 1; /* Mostrar el texto al pasar el mouse */
+  opacity: 1;
 }
 
 .text-overlay h2 {
   margin: 0;
   padding: 10px;
-}
+} */

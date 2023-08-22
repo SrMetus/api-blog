@@ -2,18 +2,18 @@ import React, { useContext, useEffect } from "react";
 import { Card } from "../component/card";
 import { Context } from "../store/appContext";
 
+import "/src/styles/characters.css";
+
 export const Characters = () => {
     const { store, actions } = useContext(Context);
-    console.log("Characters", store.characters)
 
     useEffect(() => {
         actions.getCharacters("https://rickandmortyapi.com/api/character");
     }, []);
 
     return (
-        <div className="container-fluid min-vh-100 d-flex justify-content-center align-items-center">
-            <div className="row row-cols-3 row-cols-md-4 gap-4">
-
+        <main>
+            <div className="card-container">
                 {store.characters.length > 0 ? (
                     store.characters.map((item) => (
                         <Card
@@ -31,7 +31,6 @@ export const Characters = () => {
                     <p>Character not found</p>
                 )}
             </div>
-
-        </div>
+        </main>
     );
 };
