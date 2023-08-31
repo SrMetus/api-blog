@@ -2,6 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			characters: [],
+			info: [],
 			locations: [],
 			details: {},
 			favorite: []
@@ -14,45 +15,55 @@ const getState = ({ getStore, getActions, setStore }) => {
 					)
 					.then(data => {
 						setStore({ characters: data.results });
-						console.log("FlUX", data)
 					})
 					.catch(error => {
-						console.log(error);
+						console.log("getCharacters", error);
 					});
+			},
+			getInfo: (url) => {
+				fetch(url)
+					.then(resp => resp.json())
+					.then(data => {
+						setStore({ info: data.info })
+					})
+					.catch(error => console.log("getInfo", error))
 			},
 			getLocations: (url) => {
 				fetch(url)
-				.then(resp => resp.json()
-				)
-				.then(data => {
-					setStore({ locations: data.results });
-					console.log("Flux", data.results)
-				})
-				.catch(error => {
-					console.log(error);
-				})
+					.then(resp => resp.json()
+					)
+					.then(data => {
+						setStore({ locations: data.results });
+					})
+					.catch(error => {
+						console.log("getLotacions", error);
+					})
 			},
 			getCharactersDetails: (url) => {
 				fetch(url)
-				.then(resp => resp.json()
-				)
-				.then(data => {
-					setStore({ details: data })
-				})
-				.catch(error => {
-					console.log("error de fetch", error)
-				})
+					.then(resp => resp.json()
+					)
+					.then(data => {
+						setStore({ details: data })
+					})
+					.catch(error => {
+						console.log("getCharacterDetails", error)
+					})
 			},
 			addFavorite: fav => {
 				const store = getStore();
-				const updateFavorite = [...store.favorite, fav];
-				setStore({favorite: updateFavorite});
+				const isFavoriteAdded = store.favorite.some(item => item.id === fav.id)
+				
+				if (!isFavoriteAdded) {
+					const updateFavorite = [...store.favorite, fav];
+					setStore({ favorite: updateFavorite });
+				}
 			},
-			delFavorite: fav => {
+			delFavorite: favId => {
 				const store = getStore();
+				const updatedFavorites = store.favorite.filter(item => item.id !== favId);
+				setStore({ favorite: updatedFavorites });
 			}
-
-
 		}
 	}
 };

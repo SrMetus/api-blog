@@ -1,0 +1,62 @@
+/* Estilo para el navbar */
+.navbar {
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .navbar span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #007bff; /* Cambia el color según tu diseño */
+  }
+  
+  .nav-link {
+    background-color: #007bff;
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    transition: background-color 0.3s;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+  
+  .nav-link:hover {
+    background-color: #0056b3;
+  }
+  
+  .badge {
+    font-size: 0.9rem;
+    padding: 5px 10px;
+    border-radius: 20px;
+    position: relative;
+    top: -2px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 20px;
+    height: 20px;
+  }
+  
+  .badge.light {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .badge.dark {
+    background-color: #343a40; /* Cambia el color del badge para mejor contraste */
+    color: white; /* Asegura que el color del texto sea blanco en el badge oscuro */
+  }
+  
+  .dropdown-item {
+    font-size: 1rem;
+  }
+  
+  .btn-danger.btn-sm {
+    font-size: 1rem;
+    margin-left: 5px;
+  }
+  
+  .btn-danger.btn-sm:hover {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  

@@ -6,21 +6,23 @@ export const Single = () => {
     const { id } = useParams(); // ID de la URL
     const { store, actions } = useContext(Context);
 
-	useEffect(() => {
+    useEffect(() => {
         actions.getCharactersDetails(`https://rickandmortyapi.com/api/character/${id}`);
     }, []);
 
-	console.log(store.details)
+    console.log(store.details)
 
     return (
-        <div>
-			<img src={store.details?.image} className="card-img-top" alt="" />
-            <h2>Name: {store.details?.name}</h2>
-            <p>Status: {store.details?.status}</p>
-            <p>Species: {store.details?.species}</p>
-            <p>Gender: {store.details?.gender}</p>
-            <p>Origin: {store.details.origin?.name}</p>
-			<p>Location: {store.details.location?.name}</p>
+        <div className="card" style={{ width: "18rem" }}>
+            <img src={store.details?.image} className="card-img-top" alt={store.details?.name} />
+            <div className="card-body">
+                <h5 className="card-title">{store.details?.name}</h5>
+                <p className="card-text">Status: {store.details?.status}</p>
+                <p className="card-text">Species: {store.details?.species}</p>
+                <p className="card-text">Gender: {store.details?.gender}</p>
+                <p className="card-text">Origin: {store.details.origin?.name}</p>
+                <p className="card-text">Location: {store.details.origin?.name}</p>
+            </div>
         </div>
     );
 };

@@ -9,8 +9,8 @@ export const Card2 = ({ name, type, dimension, created }) => {
                     <p className="card-text">type: {type}</p>
                     <p className="card-text">dimension: {dimension}</p>
                     <p className="card-text">created: {created}</p>
-                    <a href="#" className="btn btn-primary">Details</a>
-                    <a href="#" className="btn btn-danger">Fav</a>
+                    {/* <a href="#" className="btn btn-primary">Details</a>
+                    <a href="#" className="btn btn-danger">Fav</a> */}
                 </div>
             </div>
         </>

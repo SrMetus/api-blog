@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { Card } from "../component/card";
 import { Context } from "../store/appContext";
 
-import "/src/styles/characters.css";
+import "../../styles/characters.css";
 
 export const Characters = () => {
     const { store, actions } = useContext(Context);

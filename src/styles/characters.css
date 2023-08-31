@@ -4,23 +4,66 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 800px;
+  margin: 0; /* Agrega esto para quitar el margen predeterminado del body */
+  background-color: #f9f9f9; /* Agrega un color de fondo */
+  font-family: Arial, sans-serif; /* Ajusta la fuente si es necesario */
 }
 
 main {
   display: flex;
   justify-content: center;
   width: 100%;
+  padding: 20px; /* Añade un espacio alrededor del contenido principal */
 }
 
 .card-container {
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 10px;
-  justify-items: center;
+  max-width: 1200px; /* Limita el ancho máximo para evitar que se extienda demasiado */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px; /* Aumenta el espacio entre las tarjetas */
   padding: 15px;
+  background-color: white;
   border: 1px solid #ccc;
-  background-color: #f9f9f9;
+  border-radius: 10px; /* Agrega bordes redondeados */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Agrega una sombra suave */
   text-align: center;
+}
+
+/* Estilo para las letras en la Card */
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+/* Efecto en los botones */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+
+/* Agregar un efecto de sombra en los botones al hacer hover */
+.btn:hover {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
